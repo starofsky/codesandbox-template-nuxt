@@ -59,7 +59,7 @@
           <a
             href="https://nuxtjs.org"
             target="_blank"
-            class="button--doc text-green-500 hover:underline"
+            class="text-green-500 hover:underline"
             >Nuxt documentation</a
           >, whether you are new or have previous experience with the
           framework.<br />
@@ -78,7 +78,7 @@
       <div class="flex justify-center pt-4 space-x-2">
         <a href="https://github.com/nuxt/nuxt.js" target="_blank"
           ><svg
-            class="w-6 h-6 text-gray-600 hover:text-gray-800 button--github"
+            class="w-6 h-6 text-gray-600 hover:text-gray-800"
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
             aria-hidden="true"
@@ -112,11 +112,35 @@
         ></a>
       </div>
     </div>
+    <div>
+      <button type="submit" class="btn btn-submit" @click.prevent="addCookie">
+        Add cookies
+      </button>
+      <button
+        type="submit"
+        class="btn btn-submit"
+        @click.prevent="removeCookie"
+      >
+        remove cookies
+      </button>
+      <nuxt-link to="index2">
+        <strong> index2 </strong>
+      </nuxt-link>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'NuxtTutorial',
+  methods: {
+    addCookie() {
+      this.$cookies.set('testt', 'testttestt')
+      location.reload()
+    },
+    removeCookie() {
+      this.$cookies.remove('testt')
+      location.reload()
+    },
+  },
 }
 </script>
